@@ -231,7 +231,6 @@ const [useProvideLTARStore, useLTARStore] = useInjectionState(
 
               // todo: include only required fields
               linkColumnId: column.value.fk_column_id || column.value.id,
-              linkRowData: JSON.stringify(row.value.row),
             } as any,
           )
           const ids = new Set(childrenList.value?.list?.map((item) => item.Id) ?? [])
@@ -264,7 +263,6 @@ const [useProvideLTARStore, useLTARStore] = useInjectionState(
               where:
                 childrenExcludedListPagination.query &&
                 `(${relatedTableDisplayValueProp.value},like,${childrenExcludedListPagination.query})`,
-              linkRowData: changedRowData ? JSON.stringify(changedRowData) : undefined,
             } as any,
           )
         }
